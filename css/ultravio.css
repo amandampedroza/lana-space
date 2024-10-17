@@ -9,7 +9,7 @@
 body{
     margin: 0;
     padding: 0;
-    background-color: rgb(74, 74, 74);
+    background-color: #cac9c9;
     
 }
 
@@ -101,15 +101,17 @@ h1 {
     align-items: center;
     justify-content: space-between;
     padding: 7vh;
-    background-color: rgb(255, 255, 255);
+    background-color: #272727;
     margin: 7vh;
     border-radius: 25px;
+    
 }
 
 .historia {
     font-size: 35px;
     font-family: "Afacad Flux", sans-serif;
     width: 50%;
+    color: white;
  
 }
 
@@ -163,11 +165,12 @@ h1 {
 /*INICIO IMPACTO */
 
 .onu {
-    background-color: rgb(255, 255, 255);
+    background-color: #272727;   
     padding: 5vh;
     margin: 7vh;
     border-radius: 25px; font-size: 35px;
     font-family: "Afacad Flux", sans-serif;
+    color: white;
   
 
 }

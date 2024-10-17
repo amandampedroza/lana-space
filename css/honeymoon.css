@@ -100,7 +100,7 @@ h1 {
     align-items: center;
     justify-content: space-between;
     padding: 7vh;
-    background-color: rgb(255, 255, 255);
+    background-color:rgb(255, 213, 213);
     margin: 7vh;
     border-radius: 25px;
 }
@@ -162,7 +162,7 @@ h1 {
 /*INICIO IMPACTO */
 
 .onu {
-    background-color: rgb(255, 255, 255);
+    background-color: rgb(255, 213, 213);
     padding: 5vh;
     margin: 7vh;
     border-radius: 25px; font-size: 35px;

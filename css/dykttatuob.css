@@ -10,6 +10,7 @@
 body{
     margin: 0;
     padding: 0;
+    background-color: #c4c5ca;
     
 }
 
@@ -34,7 +35,7 @@ body{
     border-radius: 10px;
     font-size: 15px;
     font-family: "Afacad Flux", sans-serif;  
-    background-color: lightblue;
+    background-color: rgb(255, 253, 206);
     
 }
 
@@ -92,11 +93,93 @@ h1 {
  
     
 }
-.historia {
-    background-color:rgb(50, 128, 196);;
-    font-size: 30px;
+/* FIM BANNER */
+
+/* INICIO CORPO*/
+
+/* INICIO QUEM E*/
+
+
+.historia-foto {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 7vh;
+    background-color: #464c5a;
+    margin: 7vh;
     border-radius: 25px;
-    padding: 25px;
-    font-family: "Afacad Flux", sans-serif;
-    color: #ffffff;
+    color: white;
+    
 }
+
+.historia {
+    font-size: 35px;
+    font-family: "Afacad Flux", sans-serif;
+    width: 50%;
+ 
+}
+
+
+.foto-historia {
+    background-image: url(../img/lanadyk4.jpg);
+    background-size: cover;
+    width: 600px;
+    height: 400px;
+    border-radius: 25px;
+}
+
+/* FIM QUEM E */
+
+/* INICIO CARROSSEL*/
+
+.carousel-tudo {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+
+}
+
+
+.foto1 {
+    background-image: url(../img/lanadyk6.jpg);
+    background-size: cover;
+    width: 400px;
+    height: 400px;
+    border-radius: 25px;
+}
+
+.foto2 {
+    background-image: url(../img/lanadyk2.jpg);
+    background-size: cover;
+    width: 400px;
+    height: 400px;
+    border-radius: 25px;
+}
+
+.foto3 {
+    background-image: url(../img/lanadyk7.jpg);
+    background-size: cover;
+    width: 400px;
+    height: 400px;
+    border-radius: 25px;
+}
+
+/* FIM CARROSSEL */
+
+/*INICIO IMPACTO */
+
+.onu {
+    background-color: #464c5a;
+    padding: 5vh;
+    margin: 7vh;
+    border-radius: 25px; font-size: 35px;
+    font-family: "Afacad Flux", sans-serif;
+    color: white;
+  
+  
+
+}
+
+/* FIM IMPACTO */
+
+/* FIM CORPO */
