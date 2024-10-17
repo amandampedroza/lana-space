@@ -1,0 +1,100 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&display=swap');
+@import url('https://fonts.cdnfonts.com/css/kapakana');
+@import url('https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Afacad+Flux:wght@100..1000&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Karantina:wght@300;400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+@import url('https://db.onlinewebfonts.com/c/91943f6ec0049b4797501c03db9c4bf0?family=CCBiffBamBoom');
+
+body{
+    margin: 0;
+    padding: 0;
+    
+}
+
+.background {
+    background-image: url(../img/lana14.jpg);
+    background-position: center; /* Centraliza a imagem */
+    background-repeat: no-repeat; /* Não repete a imagem */
+    background-size: cover; 
+    background-color: aliceblue;
+    width: 100%;
+    height: 600px;
+
+}
+
+.select {
+    color: white;
+    font-family: "Afacad Flux", sans-serif; 
+    font-size: 20px;
+}
+
+#slt_tema {
+    border-radius: 10px;
+    font-size: 15px;
+    font-family: "Afacad Flux", sans-serif;  
+    background-color: rgb(230, 227, 173);
+    
+}
+
+.navbar {
+    padding: 5vh;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.container{
+    display: flex;
+    justify-content: space-evenly;
+    font-size: 30px;
+    font-family: "Afacad Flux", sans-serif;
+    color: white ;
+    width: 40%; 
+    
+}
+
+.titulo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    justify-content: space-evenly;
+    font-family: "CCBiffBamBoom";
+    font-size: 80px;
+    color:  rgb(255, 225, 52);
+     text-shadow: 
+    -3px -3px 0px rgb(255, 0, 0); 
+    margin-top: 15vh;
+    width: 70%;
+    margin-left: 30vh;
+    
+}
+h1 {
+    margin: 0;
+    padding: 0;
+    font-weight: 100;
+}
+
+.frase {
+    font-size: 80px;
+    font-family: "Karantina", system-ui;
+    color: rgb(255, 0, 0);
+    /* text-shadow: 
+    -2px -2px 0px black, 
+    2px -2px 0px black, 
+    -2px 2px 0px black, 
+    2px 2px 0px black; */
+    width: 50%;
+    margin-left: 55vh;
+    margin-top: 10vh;
+    
+}
+.historia {
+    background-color:rgb(211, 189, 64);
+    font-size: 30px;
+    border-radius: 25px;
+    padding: 25px;
+    font-family: "Afacad Flux", sans-serif;
+    color: #ffffff;
+}

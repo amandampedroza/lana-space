@@ -1,0 +1,176 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&display=swap');
+@import url('https://fonts.cdnfonts.com/css/kapakana');
+@import url('https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Afacad+Flux:wght@100..1000&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Karantina:wght@300;400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+
+@font-face {
+    font-family: 'Honeymoon';
+    src: url('../fonts/Honeymoon.otf') format('truetype');
+}
+
+body{
+    margin: 0;
+    padding: 0;
+    background-color: #ed7d73;
+    
+}
+
+.background {
+    background-image: url(../img/lana9.jpg);
+    background-position: center; /* Centraliza a imagem */
+    background-repeat: no-repeat; /* Não repete a imagem */
+    background-size: cover; 
+    background-color: aliceblue;
+    width: 100%;
+    height: 600px;
+
+}
+
+.select {
+    color: white;
+    font-family: "Afacad Flux", sans-serif; 
+    font-size: 20px;
+}
+
+#slt_tema {
+    border-radius: 10px;
+    font-size: 15px;
+    font-family: "Afacad Flux", sans-serif;  
+    background-color: lightblue;
+    
+}
+
+.navbar {
+    padding: 5vh 5vh 0 5vh;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.container{
+    display: flex;
+    justify-content: space-evenly;
+    font-size: 30px;
+    font-family: "Afacad Flux", sans-serif;
+    color: white ;
+    width: 40%; 
+    
+}
+.titulo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: "Bebas Neue", sans-serif;
+    font-size: 80px;
+    color:  rgb(255, 0, 0);
+  
+ 
+}
+
+h1 {
+    margin: 0;
+    padding-left: 2vh;
+    padding-right: 2vh;
+    font-weight: 400;
+}
+
+.frase {
+    font-size: 65px;
+    font-family: "Honeymoon", system-ui;
+    color: rgb(0, 50, 94);
+    width: 40%;
+    padding: 5px;
+    margin-left: 65vh;
+    font-weight: 500;
+    margin-top: 30vh;
+    
+}
+/* FIM BANNER */
+
+/* INICIO CORPO*/
+
+/* INICIO QUEM E*/
+
+
+.historia-foto {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 7vh;
+    background-color: rgb(255, 255, 255);
+    margin: 7vh;
+    border-radius: 25px;
+}
+
+.historia {
+    font-size: 35px;
+    font-family: "Afacad Flux", sans-serif;
+    width: 50%;
+ 
+}
+
+
+.foto-historia {
+    background-image: url(../img/lanahoney1.jpg);
+    background-size: cover;
+    width: 600px;
+    height: 400px;
+    border-radius: 25px;
+}
+
+/* FIM QUEM E */
+
+/* INICIO CARROSSEL*/
+
+.carousel-tudo {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+
+}
+
+
+.foto1 {
+    background-image: url(../img/lanahoney2.jpg);
+    background-size: cover;
+    width: 400px;
+    height: 400px;
+    border-radius: 25px;
+}
+
+.foto2 {
+    background-image: url(../img/lanahoney4.jpg);
+    background-size: cover;
+    width: 400px;
+    height: 400px;
+    border-radius: 25px;
+}
+
+.foto3 {
+    background-image: url(../img/lanahoney3.jpg);
+    background-size: cover;
+    width: 400px;
+    height: 400px;
+    border-radius: 25px;
+}
+
+/* FIM CARROSSEL */
+
+/*INICIO IMPACTO */
+
+.onu {
+    background-color: rgb(255, 255, 255);
+    padding: 5vh;
+    margin: 7vh;
+    border-radius: 25px; font-size: 35px;
+    font-family: "Afacad Flux", sans-serif;
+  
+
+}
+
+/* FIM IMPACTO */
+
+/* FIM CORPO */
