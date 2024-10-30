@@ -48,10 +48,20 @@ body{
     justify-content: space-evenly;
     font-size: 30px;
     font-family: "Afacad Flux", sans-serif;
-    color: white ;
+    color: white;
     width: 40%; 
     
 }
+
+.container a {
+    text-decoration: none;
+    color: white;
+}
+
+.container a:hover{
+    color: rgb(204, 129, 129);
+}
+
 
 .titulo-frase {
     display: flex;

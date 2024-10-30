@@ -55,7 +55,12 @@ body{
     font-family: "Afacad Flux", sans-serif;
     color: white ;
     width: 40%; 
+ 
     
+}
+
+.container a {
+    text-decoration: none;
 }
 
 .titulo-frase {
@@ -140,7 +145,7 @@ h1 {
 
 
 .foto1 {
-    background-image: url(../img/lanabb3.jpg);
+    background-image: url(../img/lanabb7.jpg);
     background-size: cover;
     width: 400px;
     height: 400px;
