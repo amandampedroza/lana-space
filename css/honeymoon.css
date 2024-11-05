@@ -14,7 +14,7 @@
 body{
     margin: 0;
     padding: 0;
-    background-color: #ed7d73;
+    background-color: #c4d6e4;  
     
 }
 
@@ -59,6 +59,16 @@ body{
     width: 40%; 
     
 }
+
+.container a {
+    text-decoration: none;
+    color: white;
+}
+
+.container a:hover{
+    color: rgb(255, 155, 155);
+}
+
 .titulo {
     display: flex;
     align-items: center;
@@ -99,10 +109,26 @@ h1 {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 7vh;
-    background-color:rgb(255, 213, 213);
+    background-color:#f1e2db;
     margin: 7vh;
     border-radius: 25px;
+    padding: 2vh 7vh 7vh 7vh;
+    flex-direction: column;
+}
+
+.titulo-queme {
+    font-size: 45px;
+    padding-bottom: 2%;
+    font-family: "Afacad Flux", sans-serif;
+    font-weight: 500;
+    color:#c50d57;
+
+}
+
+.historiatexto-foto{
+    display: flex;
+    justify-content: space-between;
+
 }
 
 .historia {
@@ -162,12 +188,46 @@ h1 {
 /*INICIO IMPACTO */
 
 .onu {
-    background-color: rgb(255, 213, 213);
-    padding: 5vh;
+    background-color: #f1e2db;
     margin: 7vh;
-    border-radius: 25px; font-size: 35px;
+    border-radius: 25px; 
     font-family: "Afacad Flux", sans-serif;
-  
+    font-size: 30px;
+    padding: 2vh 5vh 5vh 5vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+
+.titulo-impacto{
+    font-size: 45px;
+    font-family: "Afacad Flux", sans-serif;
+    font-weight: 500;
+    color:#c50d57;
+}
+
+.onu-texto-foto {
+    display: flex;
+    align-items: center;
+    padding: 5vh 5vh 0 5vh;
+    flex-direction: column;
+    
+}
+
+
+.onu-fotos {
+    display: flex;
+    font-size: 22px;
+    align-items: center;
+    margin-right: 2%;
+
+}
+
+.onu-fotos img{
+    width: 140px;
+    height: 140px;
+    margin: 2%;
 
 }
 

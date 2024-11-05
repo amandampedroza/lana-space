@@ -54,6 +54,16 @@ body{
     
 }
 
+.container a {
+    text-decoration: none;
+    color: white;
+}
+
+.container a:hover{
+    color: rgb(211, 189, 64);
+}
+
+
 .titulo-frase {
     display: flex;
     flex-direction: column;
@@ -71,9 +81,7 @@ body{
     font-size: 80px;
     color:  rgb(211, 189, 64);
     margin-top: 15vh;
-
- 
-    
+        
 }
 h1 {
     margin: 0;
@@ -101,12 +109,27 @@ h1 {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 7vh;
-    background-color:  #aa742e;
+    background-color:  #d1b552;
     margin: 7vh;
-    border-radius: 25px;
+    border-radius: 25px;    
+    padding: 2vh 7vh 7vh 7vh;
+    flex-direction: column;
 }
 
+.titulo-queme {
+    font-size: 45px;
+    padding-bottom: 2%;
+    font-family: "Afacad Flux", sans-serif;
+    font-weight: 500;
+    color:#aa742e;
+
+}
+
+.historiatexto-foto{
+    display: flex;
+    justify-content: space-between;
+
+}
 .historia {
     font-size: 35px;
     font-family: "Afacad Flux", sans-serif;
@@ -164,12 +187,47 @@ h1 {
 /*INICIO IMPACTO */
 
 .onu {
-    background-color:  #aa742e;
-    padding: 5vh;
+    background-color:#d1b552;
     margin: 7vh;
-    border-radius: 25px; font-size: 35px;
+    border-radius: 25px;
     font-family: "Afacad Flux", sans-serif;
-    color:  #ffffff ;
+    color:  #ffffff;
+    font-size: 30px;
+    padding: 2vh 5vh 5vh 5vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+
+.titulo-impacto{
+    font-size: 45px;
+    font-family: "Afacad Flux", sans-serif;
+    font-weight: 500;
+    color:#aa742e;
+}
+
+.onu-texto-foto {
+    display: flex;
+    align-items: center;
+    padding: 5vh 5vh 0 5vh;
+    flex-direction: column;
+    
+}
+
+
+.onu-fotos {
+    display: flex;
+    font-size: 22px;
+    align-items: center;
+    margin-right: 2%;
+
+}
+
+.onu-fotos img{
+    width: 140px;
+    height: 140px;
+    margin: 2%;
 
 }
 
