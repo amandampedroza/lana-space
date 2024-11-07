@@ -47,7 +47,7 @@ body{
 .container{
     display: flex;
     justify-content: space-evenly;
-    font-size: 30px;
+    font-size: 25px;
     font-family: "Afacad Flux", sans-serif;
     color: white ;
     width: 40%; 
@@ -232,5 +232,31 @@ h1 {
 }
 
 /* FIM IMPACTO */
+
+
+/* COMEÇO FOOTER */
+
+.footer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color:#d1b552;
+    padding: 1%;
+    font-size: 25px;
+    font-family:  "Afacad Flux", sans-serif; 
+    color: #ffffff;
+}
+
+.footer a {
+    text-decoration: none;
+    margin-left: 5px;
+    color: #ffffff;
+}
+
+.footer a:hover{
+    color: black;
+}
+
+/*FIM DO FOOTER*/
 
 /* FIM CORPO */
