@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Escolha de Imagem com Valor</title>
+    <style>
+
+@import url('https://fonts.googleapis.com/css2?family=Afacad+Flux:wght@100..1000&display=swap');
+        body {
+            background-color:burlywood;
+        }
+        .albuns{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            
+        }
+
+        .albuns-3{
+            display: flex;
+            justify-content: space-evenly;
+            padding: 2%;
+            width: 60%;
+            font-size: 20px;
+            font-weight: 600;
+            font-family: "Afacad Flux", sans-serif;
+        }
+
+        .titulo {
+            font-size: 35px;
+            font-weight: 600;
+            font-family: "Afacad Flux", sans-serif;
+        }
+
+        .check-album{
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+        }
+
+        
+.alerta_erro{
+    display: flex;
+    justify-content: flex-end;
+  }
+  
+  .card_erro {
+    display: none;
+    background-color: #fff;
+    color: #b47b3d;
+    width: 230px;
+    position: fixed;
+    border-radius: 15px;
+    border: #b47b3d 3px solid;
+    padding: 10px;
+    margin-right: 10%;
+  }
+  
+  .card_erro #mensagem_erro{
+    font-weight: 500;
+    font-size: 20px;
+    font-family: "Afacad Flux", sans-serif;
+  }
+            
+        
+        
+    </style>
+</head>
+
+<body>
+
+    <div class="alerta_erro">
+        <div class="card_erro" id="cardErro">
+          <span id="mensagem_erro"></span>
+        </div>
+      </div>
+        <div class="albuns">
+    
+        <label class="titulo">Qual seu álbum preferido da Lana?</label> <br>
+
+
+            <div class="albuns-3">
+                <div class="check-album">
+                   
+                        <img src="../img/borntodie.jpg" alt="Imagem 1" width="150px"><br>
+                        <input type="radio" name="album" value="borntodie" >Born To Die
+                    
+                </div>
+                <div class="check-album">
+                    
+                        <img src="../img/paradise.jpg" alt="Imagem 1" width="150px"> <br>
+                        <input type="radio" name="album" value="paradise" >Paradise
+                    
+                </div>
+
+                <div class="check-album">
+                    
+                        <img src="../img/ultravio.jpg" alt="Imagem 1" width="150px"><br>
+                        <input type="radio" name="album" value="ultraviolence" >Ultraviolence
+                    
+                </div> 
+            </div>
+
+
+
+            <div class="albuns-3">
+                <div class="check-album">
+                    
+                        <img src="../img/honeymoon.jpg" alt="Imagem 1" width="150px"><br>
+
+                        <input type="radio" name="album" value="honeymoon" >Honeymoon
+                    
+                </div>
+                <div class="check-album">
+                    
+                        <img src="../img/lustforlife.jpg" alt="Imagem 1" width="150px"> <br>
+                        <input type="radio" name="album" value="lustforlife" >Lust For Life
+                    
+                </div>
+
+                <div class="check-album">
+                    
+                        <img src="../img/nfr.jpg" alt="Imagem 1" width="150px"><br>
+                        <input type="radio" name="album" value="nfr" >NFR!
+                    
+                </div> 
+            </div>
+
+
+
+            <div class="albuns-3">
+                <div class="check-album">
+                    
+                        <img src="../img/cotcc.jpeg" alt="Imagem 1" width="150px"><br>
+
+                        <input type="radio" name="album" value="cotcc" >COTCC
+                    
+                </div>
+                <div class="check-album">
+                    
+                        <img src="../img/bluebanisters.jpg" alt="Imagem 1" width="150px"> <br>
+                        <input type="radio" name="album" value="bluebanisters" >Blue Banisters
+                    
+                </div>
+
+                <div class="check-album">
+                        
+                            <img src="../img/dyk.jpg" alt="Imagem 1" width="150px"><br>
+                            <input type="radio" name="album" value="dykttatuob" >DYKTTATUOB
+                    
+                </div> 
+            </div>
+        
+            
+            <button onclick="cadastrar()">Enviar</button>
+
+        </div>
+
+</body>
+
+</html>
+
+<script>
+
+    function cadastrar(){
+
+    var radios = document.getElementsByName("album")
+    for(i = 0; i < radios.length; i++){
+      if(radios[i].checked){
+        var albumVar = radios[i].value;
+      }
+    }
+
+ console.log(albumVar)
+  
+  
+
+    // Verificando se há algum campo em branco
+    if (
+      albumVar == ""
+    ) {
+      cardErro.style.display = "block";
+      mensagem_erro.innerHTML =
+        "Preencha todos os campos para continuar";
+
+      finalizarAguardar();
+      return false;
+
+      } else {
+        setInterval(sumirMensagem, 5000);
+      }
+    
+
+    // Enviando o valor da nova input
+    fetch("/empresas/cadastrar", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        albumServer: albumVar,
+        fkUsuarioServer: sessionStorage.ID_USUARIO
+      }),
+    })
+      .then(function (resposta) {
+        console.log("resposta: ", resposta);
+
+        if (resposta.ok) {
+          cardErro.style.display = "block";
+
+          mensagem_erro.innerHTML =
+            "Boa escolha! :) Agora vamos para o login...";
+
+          setTimeout(() => {
+            window.location = "login.html";
+          }, "2000");
+
+          limparFormulario();
+          finalizarAguardar();
+        } else {
+          throw "Houve um erro ao tentar realizar o cadastro!";
+        }
+      })
+      .catch(function (resposta) {
+        console.log(`#ERRO: ${resposta}`);
+        finalizarAguardar();
+      });
+
+    return false;
+  
+    }
+
+  function sumirMensagem() {
+    cardErro.style.display = "none";
+  }
+
+</script>

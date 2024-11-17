@@ -7,10 +7,11 @@
     <link id="themeStylesheet" rel="stylesheet" href="../css/home.css">
     <script src="../js/home.js"></script>
     <script src="https://kit.fontawesome.com/88fed8b646.js" crossorigin="anonymous"></script>
+    <script src="../js/sessao.js"></script>
     <title>Lana Space</title>
 </head>
 
-<body>
+<body onload="validarSessao()">
 
 
     <div class="background">
@@ -34,15 +35,18 @@
                     <option value="../css/dykttatuob.css">DYKTTATUOB</option>
                 </select>
 
+                <span style="margin-left: 25px; font-size: 22px;">Olá <span id="b_usuario"></span>!</span>
+
             </div>
             <div id="div_mensagem"></div>
         </div>
                
-            <div class="container">
+            <div class="container" style="font-size: 25px;">
                 <a href="#queme">Quem é</a>
                 <a href="#impacto">Impacto</a>
                 <a href="#sobremim">Sobre mim</a>
-                <a href="./login.html"><i class="fa-solid fa-user-plus"></i></a>
+                <a href="dashboard.html">Gráficos</a>  
+                <a href="./index.html"><i class="fa-solid fa-arrow-right-from-bracket"></i></a>
             </div>
         </div>
         <div class="titulo-frase">
