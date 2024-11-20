@@ -10,6 +10,10 @@
     src: url('../fonts/BlueBanisters.ttf') format('truetype');
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 body{
     margin: 0;  
     padding: 0;

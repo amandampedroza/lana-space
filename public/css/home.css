@@ -11,6 +11,10 @@ body{
     
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 /* COMEÇO DO BANNER */
 
 .background {

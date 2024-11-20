@@ -7,6 +7,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
 @import url('https://db.onlinewebfonts.com/c/91943f6ec0049b4797501c03db9c4bf0?family=CCBiffBamBoom');
 
+html {
+    scroll-behavior: smooth;
+}
+
 body{
     margin: 0;
     padding: 0;

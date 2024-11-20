@@ -2,330 +2,88 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Dashboard</title>
-  <link rel="stylesheet" href="../css/style_dash.css" />
-  <link rel="website icon" type="png" href="../images/logo2.png">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+  <script src="https://kit.fontawesome.com/88fed8b646.js"></script>
+  <script src="./js/sessao.js"></script>
+  <title>Dashoboard</title>
 </head>
-<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-
-<style>
-    @import url('https://fonts.googleapis.com/css2?family=Afacad+Flux:wght@100..1000&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Yanone+Kaffeesatz:wght@200..700&display=swap');
-
-
-body{
-    margin: 0;
-    background-color: #EAE7E3;
-    font-family: 'Roboto', sans-serif;
-}
-
-
-.div_titulo{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 30px;
-    color: pink;
-    font-family: "Afacad Flux", sans-serif;
-    font-weight: bold;
-    
-}
-
-.container_dashboard{
-    display: flex;
-    justify-content: center;
-}
-.dashboard{
-    width: 100%;
-     display: flex;
-    justify-content: space-around;
-    align-items: center;
-    flex-wrap: wrap;
-
-}
-#graficos_todos{
-    display: flex;
-    justify-content: space-around;
-    flex-wrap: wrap;
-    width: 100%;
-}
-
-.graficos{
-    display: flex;
-    background-color: #EAE7E3;
-    height: 20vh;
-    width: 30vw;
-}
-.graficos h1{
-    font-size: 25px;
-}
-
-.container_dash{
-
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding-bottom: 3vh;
-
-}
-.container_all{
-    width: 100%;
-    display: flex;
-}
-
-.graficos {
-   
-    display: flex;
-    flex-direction: column;
-}
-.dashboard{
-    flex-direction: row;
-}
-.container_kpis{
-    display: flex;
-    flex-direction: row;
-    width: 100%;
-}
-#graficos_lote1{
-    display: none;
-    justify-content: space-around;
-    flex-wrap: wrap;
-    width: 100%;
-}
-#graficos_lote2{
-    display: none;
-    justify-content: space-around;
-    flex-wrap: wrap;
-    width: 100%;
-}
-
-#graficos_lotes{
-    display: flex;
-    justify-content: space-around;
-    flex-wrap: wrap;
-    width: 100%;
-}
-
-#container_kpis_lote2{
-    display: none;
-}
-
-.container_kpis{
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    justify-content: space-around;
-    width: 100%;
-    
-}
-
-.kpis{
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    align-items: center;
-    max-width: 20%;
-    width: 15vw;
-    height: 11vw;
-    margin: 16px;
-    border-radius: 20px;
-    background-color: rgb(235, 235, 235);
-    box-shadow:  0px 1px 20px #5a5a5a;
-}
-
-
-.titulos-kpis {
-    font-family: "Afacad Flux", sans-serif;
-    color: #424242;
-    font-size: 3vh;
-    padding: 0 2vh 2vh 2vh;
-    font-weight: bold;
-   
-}
-
-.info-kpi {
-    font-size: 5.5vh;
-    align-self: center;
-    color: red;
-    font-weight: bold;
-    font-family: "Afacad Flux", sans-serif;
-    padding-bottom: 1vh;
-}
-
-
-.container_valor_termometro{
-    display: flex;
-    align-items: end;
-    justify-content: center;
-    gap: 20px;
-}
-.container_termometro{
-    display: flex;
-    flex-direction: column-reverse;
-    align-items: center;
-    justify-content: end;
-    height: 100%;
-    width: 6%;
-    border: solid 1px black;
-    margin-bottom: 10px;
-    
-    
-}
-
-.container_umidade{
-    display: flex;
-    flex-direction: column-reverse;
-    align-items: center;
-    justify-content: end;
-    height: 100%;
-    width: 6%;
-    border: solid 1px black;
-    margin-bottom: 10px;
-
-}
-.termometro{
-    box-shadow: 3px 3px 10px rgb(224, 157, 34);
-    width: 100%;
-    background-color: rgb(216, 159, 54);
-
-}
-.umidade{
-    box-shadow: 3px 3px 10px rgba(33, 188, 240, 1);
-    width: 100%;
-    background-color: rgb(33, 188, 240);
-
-}
-.informacao{
-    width: 90%;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-}
-
-.horarioVar{
-    display: flex;
-    flex-direction: column;
-}
-
-.termometro3{
-    box-shadow: 3px 3px 10px rgb(88, 88, 250, 0.5);
-    width: 100%;
-    background-color: rgb(201, 137, 17);
-
-}
-.umidade3 {
-    box-shadow: 3px 3px 10px rgb(88, 88, 250, 0.5);
-    width: 100%;
-    background-color: rgb(17, 17, 201);
-}
-
-/* h1 {
-    padding: 2vh;
-    text-align: center;
- 
-    color: #787a48;
-   
-} */
-.horarios_kpi{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-}
-
-
-</style>
 
 <body>
-  <script src="https://kit.fontawesome.com/88fed8b646.js" crossorigin="anonymous"></script>
+
+  <div class="navbar">
+    <a class="icon-voltar" href="./index.html"><i class="fa-solid fa-arrow-left"></i></a>
+  </div>
+
+  <div class="titulo">
+    <h1> Lana Space</h1>
+    <i style="margin-left: 1vw;" class="fa-solid fa-magnifying-glass-chart"></i>
+  </div>
 
 
-  <div class="container_all">
-  
-    <div class="container_dash">
-      <div class="div_titulo">
-        <h1>Lana Space </h1>
-        <i class="fa-solid fa-magnifying-glass-chart"></i>
+  <div class="kpis">
+    <div class="kpi">
+      <div class="texto-kpi">
+        Idade média dos usuários:
       </div>
+      <div id="informacaoKpi"></div>
+    </div>
 
 
-      <div class="container_dashboard">
-        <div class="dashboard border">
-          <div class="container_kpis" id="container_kpis_sensores">
-            <span class="kpis">
-              <div class="informacao">
-                <span class="titulos-kpis">Albúm mais escolhido:</span>
-                <div class="container_valor_termometro">
-                  <span id="UmidadePorcentagem3" class="info-kpi"></span>
-                  <div class="container_umidade">
-                    <div class="umidade" id="umidade3">
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </span>
-
-            <span class="kpis">
-              <div class="informacao">
-                <span class="titulos-kpis">Albúm menos escolhido:</span>
-                <div class="container_valor_termometro">
-                  <span id="TemperaturaGraus" class="info-kpi" style="color: rgb(196, 169, 48);"></span>
-                  <div class="container_termometro">
-                    <div class="termometro" id="termometro">
-                    </div>
-                  </div>
-
-                </div>
-              </div>
-            </span>
-            <span class="kpis">
-              <span class="titulos-kpis"> Idade média dos usuários:</span>
-              <span class="info-kpi"> 5ºC 
-              </span>
-            </span>
-          </div>
-         
-          <div id="graficos_todos" class="graficos_todos">
-            <div class="graficos border">
-              <h1>Temperatura e Umidade diária</h1>
-              <canvas class="chart" id="myChart2"></canvas>
-            </div>
-            <div class="graficos border">
-              <h1>Temperatura e Umidade média mensal</h1>
-              <canvas class="chart" id="myChart"></canvas>
-            </div>
-          </div>
-          <span id="graficos_lotes">
-            <div id="graficos_lote1">
-              <div class="graficos border">
-                <h1>Temperatura e Umidade diária (Lote ABC123)</h1>
-                <canvas class="chart" id="myChart2_lote"></canvas>
-              </div>
-              <div class="graficos border">
-                <h1>Temperatura e Umidade média mensal (Lote ABC123)</h1>
-                <canvas class="chart" id="myChart_lote"></canvas>
-              </div>
-            </div>
-            <div id="graficos_lote2">
-              <div class="graficos border">
-                <h1>Temperatura e Umidade diária (Lote DEF456)</h1>
-                <canvas class="chart" id="myChart2_lote2"></canvas>
-              </div>
-              <div class="graficos border">
-                <h1>Temperatura e Umidade média mensal (Lote DEF456)</h1>
-                <canvas class="chart" id="myChart_lote2"></canvas>
-              </div>
-            </div>
-          </span>
-        </div>
+    <div class="kpi">
+      <div class="texto-kpi">
+        Idade média dos usuários:
       </div>
-      
+      <div id="informacaoKpi"></div>
+    </div>
+
+
+  <div class="kpi">
+    <div class="texto-kpi">
+      Idade média dos usuários:
+    </div>
+    <div id="informacaoKpi"></div>
+  </div>
+  </div>
+
+  <style>
+
+@import url('https://fonts.googleapis.com/css2?family=Afacad+Flux:wght@100..1000&display=swap');
+
+    .titulo{
+      font-size: 30px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: "Afacad Flux", sans-serif;
+      color: darksalmon; 
+    }
+
+
+    .kpis {
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      font-family: "Afacad Flux", sans-serif; 
+      margin-left: 5vw;
+      margin-right: 5vw;
+
+    }
+
+    .kpi {
+      display: flex;
+      flex-direction: column;
+      background-color: darksalmon;
+      width: 15vw;
+      height: 12vw;
+      border-radius: 1vw;
+      text-align: center;
+      font-size: 25px;
+      font-family: "Afacad Flux", sans-serif; 
+    }
+  </style>
+
 </body>
 
 </html>

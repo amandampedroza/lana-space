@@ -11,6 +11,10 @@
     src: url('../fonts/muara.ttf') format('truetype');
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 
 body{
     margin: 0;
