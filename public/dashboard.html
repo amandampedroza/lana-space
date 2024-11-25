@@ -7,83 +7,206 @@
 
   <script src="https://kit.fontawesome.com/88fed8b646.js"></script>
   <script src="./js/sessao.js"></script>
-  <title>Dashoboard</title>
+  <title>Dashboard</title>
 </head>
 
-<body>
+<!-- <body onload="validarSessao()"> -->
 
-  <div class="navbar">
-    <a class="icon-voltar" href="./index.html"><i class="fa-solid fa-arrow-left"></i></a>
-  </div>
+  <body onload="listar(); validarSessao(); albumFavorito()">
+  <div class="all">
+    <div class="menu-lateral">
+      <span>Olá <span id="b_usuario"></span>!</span>
 
-  <div class="titulo">
-    <h1> Lana Space</h1>
-    <i style="margin-left: 1vw;" class="fa-solid fa-magnifying-glass-chart"></i>
-  </div>
+      <a class="home" href="index2.html">Home</a>
+      <a class="sair" href="login.html">Sair</a>
 
+    </div>
 
-  <div class="kpis">
-    <div class="kpi">
-      <div class="texto-kpi">
-        Idade média dos usuários:
+    <div class="container">
+      <div class="navbar">
+      
       </div>
-      <div id="informacaoKpi"></div>
-    </div>
 
-
-    <div class="kpi">
-      <div class="texto-kpi">
-        Idade média dos usuários:
+      <div class="titulo">
+        <h1>Lana Space</h1>
+        <i class="fa-solid fa-magnifying-glass-chart"></i>
       </div>
-      <div id="informacaoKpi"></div>
+
+
+      <div class="kpis">
+        <div class="kpi">
+          <div class="texto-kpi">
+            Idade média dos usuários:
+          </div>
+          <div style="font-size: 35px;" id="div_idade"></div>
+        </div>
+
+
+        <div class="kpi">
+          <div class="texto-kpi">
+            Álbum mais votado:
+          </div>
+          <div id="div_album"></div>
+        </div>
+
+
+        <div class="kpi">
+          <div class="texto-kpi">
+            Idade média dos usuários:
+          </div>
+          <div id="informacaoKpi"></div>
+        </div>
+      </div>
     </div>
-
-
-  <div class="kpi">
-    <div class="texto-kpi">
-      Idade média dos usuários:
-    </div>
-    <div id="informacaoKpi"></div>
   </div>
-  </div>
-
   <style>
+    @import url('https://fonts.googleapis.com/css2?family=Afacad+Flux:wght@100..1000&display=swap');
 
-@import url('https://fonts.googleapis.com/css2?family=Afacad+Flux:wght@100..1000&display=swap');
+    body{
+      margin: 0;
+      padding: 0;
+    }
 
-    .titulo{
+    h1{
+      padding: 15px;
+      margin: 0;
+    }
+    .all {
+      display: flex;
+      width: 100%;
+      justify-content: space-between;
+
+    }
+
+    .menu-lateral{
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      background-color: darkblue;
+      width: 20vw;
+      margin-right: 0;
+      justify-content: space-evenly;
+      font-size: 20px;
+
+    }
+
+    .menu-lateral a{
+      text-decoration: none;
+      color: white;
+    }
+    
+    .home:hover{
+      color: aqua;
+    }
+
+     .sair:hover{
+      color: red;
+    }
+
+    .titulo {
       font-size: 30px;
       display: flex;
       align-items: center;
       justify-content: center;
       font-family: "Afacad Flux", sans-serif;
-      color: darksalmon; 
+      color: darksalmon;
+    
     }
 
 
     .kpis {
       display: flex;
-      justify-content: space-around;
+      justify-content: space-between;
       align-items: center;
-      font-family: "Afacad Flux", sans-serif; 
-      margin-left: 5vw;
-      margin-right: 5vw;
+      font-family: "Afacad Flux", sans-serif;
+      width: 70vw;
+      max-width: 70vw;
+      padding: 5vh;
+      
+
 
     }
 
     .kpi {
       display: flex;
       flex-direction: column;
+      justify-content: space-around;
       background-color: darksalmon;
-      width: 15vw;
-      height: 12vw;
+      width: 14vw;
+      height: 11vw;
       border-radius: 1vw;
       text-align: center;
       font-size: 25px;
-      font-family: "Afacad Flux", sans-serif; 
+      color: white;
+      font-family: "Afacad Flux", sans-serif;
     }
+
+      
   </style>
 
 </body>
 
 </html>
+
+<script>
+
+
+
+function listar() {
+  fetch("/dashboard/listar", {
+    method: "GET",
+  })
+    .then((res) => res.json()) // Transforma a resposta em JSON
+    .then((json) => {
+      console.log(json);
+
+      // Atribuindo o valor da média
+      var media = parseFloat(json[0].Média); // Converte string para número
+      console.log(media);
+
+      // Atualiza o elemento no HTML
+      div_idade.innerHTML = media;
+    })
+    .catch((error) => {
+      console.error("Erro ao listar dados:", error);
+    });
+}
+
+function albumFavorito(){
+  fetch("/dashboard/albumFavorito", {
+    method: "GET",
+  })
+    .then((res) => res.json()) 
+    .then((json) => {
+      console.log(json);
+      var album = json[0].AlbumFav;
+      console.log(album);
+
+      if(album == 'ultraviolence'){
+      div_album.innerHTML = `<img src="../img/ultravio.jpg" width="100px">` 
+      } else if (album == 'borntodie') {
+        div_album.innerHTML = `<img src="../img/borntodie.jpg" width="100px">` 
+      } else if (album == 'paradise'){
+        div_album.innerHTML = `<img src="../img/paradise.jpg" width="100px">` 
+      } else if (album == 'honeymoon'){
+        div_album.innerHTML = `<img src="../img/honeymoon.jpg" width="100px">` 
+      } else if (album == 'lustforlife'){
+        div_album.innerHTML = `<img src="../img/lustforlife.jpg" width="100px">` 
+      } else if (album == 'nfr'){
+        div_album.innerHTML = `<img src="../img/nfr.jpg" width="100px">` 
+      } else if (album == 'cotcc') {
+        div_album.innerHTML = `<img src="../img/cotcc.jpg" width="100px">` 
+      } else if (album == 'bluebanisters'){
+        div_album.innerHTML = `<img src="../img/bluebanisters.jpg" width="100px">` 
+      } else if (album == 'dykttatuob'){
+        div_album.innerHTML = `<img src="../img/dyk.jpg" width="100px">` 
+      }
+    })
+    .catch((error) => {
+      console.error("Erro ao listar dados:", error);
+    });
+}
+
+
+
+</script>

@@ -17,9 +17,7 @@ function limparSessao() {
     window.location = "../login.html";
 }
 
-function guardarID(){
-    var fkUsuario = sessionStorage.ID_USUARIO = Number(json.insertId)
-}
+
 
 // carregamento (loading)
 function aguardar() {

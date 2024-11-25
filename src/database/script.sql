@@ -17,6 +17,10 @@ fkUsuario int,
 constraint fkUsuarioRespostas foreign key (fkUsuario) references usuario(idUsuario)
 );
 
+select truncate(avg(timestampdiff(year,dataNascimento, now())),1) as Média from usuario;
+
+SELECT TRUNCATE(AVG(TIMESTAMPDIFF(YEAR,dataNascimento, NOW())),1) FROM usuario;
+
 
 select * from respostas;
 
