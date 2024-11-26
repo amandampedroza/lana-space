@@ -12,5 +12,12 @@ router.get("/listar", function (req, res) {
     dashboardController.albumFavorito(req, res);
    });
 
+   router.get("/buscarAlbum", function (req, res) {
+    dashboardController.buscarAlbum(req, res);
+   });
+
+   router.get("/buscarIdade", function (req, res) {
+    dashboardController.buscarIdade(req, res);
+   });
 
 module.exports = router;

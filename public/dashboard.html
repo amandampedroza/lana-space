@@ -6,16 +6,17 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <script src="https://kit.fontawesome.com/88fed8b646.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <script src="./js/sessao.js"></script>
   <title>Dashboard</title>
 </head>
 
 <!-- <body onload="validarSessao()"> -->
 
-  <body onload="listar(); validarSessao(); albumFavorito()">
+<body onload="listar(); validarSessao(); albumFavorito(); buscarAlbum(); buscarIdade()">
   <div class="all">
     <div class="menu-lateral">
-      <span>Olá <span id="b_usuario"></span>!</span>
+      <span style="color: white;">Olá <span id="b_usuario"></span>!</span>
 
       <a class="home" href="index2.html">Home</a>
       <a class="sair" href="login.html">Sair</a>
@@ -24,12 +25,12 @@
 
     <div class="container">
       <div class="navbar">
-      
+
       </div>
 
       <div class="titulo">
         <h1>Lana Space</h1>
-        <i class="fa-solid fa-magnifying-glass-chart"></i>
+        <i style="font-size: 40px;" class="fa-solid fa-magnifying-glass-chart"></i>
       </div>
 
 
@@ -56,21 +57,41 @@
           </div>
           <div id="div_albumN"></div>
         </div>
+
+        <div class="kpi">
+          <div class="texto-kpi">
+            Álbum - votado:
+          </div>
+          <div id="d"></div>
+        </div>
+
+      </div>
+
+      <div class="graficos">
+        <div>
+          <canvas id="myChart" width="450px"></canvas>
+        </div>
+
+        <div>
+          <canvas id="myChart2" width="750px"></canvas>
+        </div>
       </div>
     </div>
   </div>
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Afacad+Flux:wght@100..1000&display=swap');
 
-    body{
+    body {
       margin: 0;
       padding: 0;
+      background-color: rgb(229, 229, 229);
     }
 
-    h1{
+    h1 {
       padding: 15px;
       margin: 0;
     }
+
     .all {
       display: flex;
       width: 100%;
@@ -78,29 +99,29 @@
 
     }
 
-    .menu-lateral{
+    .menu-lateral {
       display: flex;
       flex-direction: column;
       align-items: center;
       background-color: rgb(234, 194, 194);
-      width: 20vw;
+      width: 15vw;
       margin-right: 0;
       justify-content: space-evenly;
-      font-size: 20px;
+      font-size: 30px;
       font-family: "Afacad Flux", sans-serif;
 
     }
 
-    .menu-lateral a{
+    .menu-lateral a {
       text-decoration: none;
-      color: white;
-    }
-    
-    .home:hover{
-      color: rgb(213, 134, 134);
+      color: rgb(141, 84, 84);
     }
 
-     .sair:hover{
+    .home:hover {
+      color: rgb(91, 35, 35);
+    }
+
+    .sair:hover {
       color: red;
     }
 
@@ -110,8 +131,8 @@
       align-items: center;
       justify-content: center;
       font-family: "Afacad Flux", sans-serif;
-      color: rgb(234, 194, 194);
-    
+      color: rgb(239, 164, 164);
+
     }
 
 
@@ -120,10 +141,10 @@
       justify-content: space-between;
       align-items: center;
       font-family: "Afacad Flux", sans-serif;
-      width: 70vw;
-      max-width: 70vw;
+      width: 80vw;
+      max-width: 75vw;
       padding: 5vh;
-      
+
 
 
     }
@@ -138,11 +159,18 @@
       border-radius: 1vw;
       text-align: center;
       font-size: 25px;
-      color: white;
       font-family: "Afacad Flux", sans-serif;
+
     }
 
-      
+    .graficos {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+
+
+    }
   </style>
 
 </body>
@@ -153,82 +181,203 @@
 
 
 
-function listar() {
-  fetch("/dashboard/listar", {
-    method: "GET",
-  })
-    .then((res) => res.json()) // Transforma a resposta em JSON
-    .then((json) => {
-      console.log(json);
-
-      // Atribuindo o valor da média
-      var media = parseFloat(json[0].Média); // Converte string para número
-      console.log(media);
-
-      // Atualiza o elemento no HTML
-      div_idade.innerHTML = media;
+  function listar() {
+    fetch("/dashboard/listar", {
+      method: "GET",
     })
-    .catch((error) => {
-      console.error("Erro ao listar dados:", error);
-    });
-}
+      .then((res) => res.json()) // Transforma a resposta em JSON
+      .then((json) => {
+        console.log(json);
 
-function albumFavorito(){
-  fetch("/dashboard/albumFavorito", {
-    method: "GET",
-  })
-    .then((res) => res.json()) 
-    .then((json) => {
-      console.log(json);
-      var album = json[0].AlbumFav;
-      console.log(album);
+        // Atribuindo o valor da média
+        var media = parseFloat(json[0].Média); // Converte string para número
+        console.log(media);
 
-      var albumN = json[0].AlbumNFav;
+        // Atualiza o elemento no HTML
+        div_idade.innerHTML = media;
+      })
+      .catch((error) => {
+        console.error("Erro ao listar dados:", error);
+      });
+  }
 
-      if(album == 'ultraviolence'){
-      div_album.innerHTML = `<img src="../img/ultravio.jpg" width="100px">` 
-      } else if (album == 'borntodie') {
-        div_album.innerHTML = `<img src="../img/borntodie.jpg" width="100px">` 
-      } else if (album == 'paradise'){
-        div_album.innerHTML = `<img src="../img/paradise.jpg" width="100px">` 
-      } else if (album == 'honeymoon'){
-        div_album.innerHTML = `<img src="../img/honeymoon.jpg" width="100px">` 
-      } else if (album == 'lustforlife'){
-        div_album.innerHTML = `<img src="../img/lustforlife.jpg" width="100px">` 
-      } else if (album == 'nfr'){
-        div_album.innerHTML = `<img src="../img/nfr.jpg" width="100px">` 
-      } else if (album == 'cotcc') {
-        div_album.innerHTML = `<img src="../img/cotcc.jpg" width="100px">` 
-      } else if (album == 'bluebanisters'){
-        div_album.innerHTML = `<img src="../img/bluebanisters.jpg" width="100px">` 
-      } else if (album == 'dykttatuob'){
-        div_album.innerHTML = `<img src="../img/dyk.jpg" width="100px">` 
-      }
-
-      if(albumN == 'ultraviolence'){
-      div_albumN.innerHTML = `<img src="../img/ultravio.jpg" width="100px">` 
-      } else if (albumN == 'borntodie') {
-        div_albumN.innerHTML = `<img src="../img/borntodie.jpg" width="100px">` 
-      } else if (albumN == 'paradise'){
-        div_albumN.innerHTML = `<img src="../img/paradise.jpg" width="100px">` 
-      } else if (albumN == 'honeymoon'){
-        div_albumN.innerHTML = `<img src="../img/honeymoon.jpg" width="100px">` 
-      } else if (albumN == 'lustforlife'){
-        div_albumN.innerHTML = `<img src="../img/lustforlife.jpg" width="100px">` 
-      } else if (albumN == 'nfr'){
-        div_albumN.innerHTML = `<img src="../img/nfr.jpg" width="100px">` 
-      } else if (albumN == 'cotcc') {
-        div_albumN.innerHTML = `<img src="../img/cotcc.jpg" width="100px">` 
-      } else if (albumN == 'bluebanisters'){
-        div_albumN.innerHTML = `<img src="../img/bluebanisters.jpg" width="100px">` 
-      } else if (albumN == 'dykttatuob'){
-        div_albumN.innerHTML = `<img src="../img/dyk.jpg" width="100px">` 
-      }
+  function albumFavorito() {
+    fetch("/dashboard/albumFavorito", {
+      method: "GET",
     })
-    .catch((error) => {
-      console.error("Erro ao listar dados:", error);
-    });
-}
+      .then((res) => res.json())
+      .then((json) => {
+        console.log(json);
+        var album = json[0].AlbumFav;
+        console.log(album);
+
+        var albumN = json[0].AlbumNFav;
+
+        if (album == 'ultraviolence') {
+          div_album.innerHTML = `<img src="../img/ultravio.jpg" width="100px">`
+        } else if (album == 'borntodie') {
+          div_album.innerHTML = `<img src="../img/borntodie.jpg" width="100px">`
+        } else if (album == 'paradise') {
+          div_album.innerHTML = `<img src="../img/paradise.jpg" width="100px">`
+        } else if (album == 'honeymoon') {
+          div_album.innerHTML = `<img src="../img/honeymoon.jpg" width="100px">`
+        } else if (album == 'lustforlife') {
+          div_album.innerHTML = `<img src="../img/lustforlife.jpg" width="100px">`
+        } else if (album == 'nfr') {
+          div_album.innerHTML = `<img src="../img/nfr.jpg" width="100px">`
+        } else if (album == 'cotcc') {
+          div_album.innerHTML = `<img src="../img/cotcc.jpg" width="100px">`
+        } else if (album == 'bluebanisters') {
+          div_album.innerHTML = `<img src="../img/bluebanisters.jpg" width="100px">`
+        } else if (album == 'dykttatuob') {
+          div_album.innerHTML = `<img src="../img/dyk.jpg" width="100px">`
+        }
+
+        if (albumN == 'ultraviolence') {
+          div_albumN.innerHTML = `<img src="../img/ultravio.jpg" width="100px">`
+        } else if (albumN == 'borntodie') {
+          div_albumN.innerHTML = `<img src="../img/borntodie.jpg" width="100px">`
+        } else if (albumN == 'paradise') {
+          div_albumN.innerHTML = `<img src="../img/paradise.jpg" width="100px">`
+        } else if (albumN == 'honeymoon') {
+          div_albumN.innerHTML = `<img src="../img/honeymoon.jpg" width="100px">`
+        } else if (albumN == 'lustforlife') {
+          div_albumN.innerHTML = `<img src="../img/lustforlife.jpg" width="100px">`
+        } else if (albumN == 'nfr') {
+          div_albumN.innerHTML = `<img src="../img/nfr.jpg" width="100px">`
+        } else if (albumN == 'cotcc') {
+          div_albumN.innerHTML = `<img src="../img/cotcc.jpg" width="100px">`
+        } else if (albumN == 'bluebanisters') {
+          div_albumN.innerHTML = `<img src="../img/bluebanisters.jpg" width="100px">`
+        } else if (albumN == 'dykttatuob') {
+          div_albumN.innerHTML = `<img src="../img/dyk.jpg" width="100px">`
+        }
+      })
+      .catch((error) => {
+        console.error("Erro ao listar dados:", error);
+      });
+  }
+
+  function buscarAlbum() {
+    fetch("/dashboard/buscarAlbum")
+      .then(response => {
+        if (response.ok) {
+          return response.json();
+        } else {
+          console.error('Erro ao obter dados do gráfico');
+        }
+      })
+      .then(data => {
+        if (data && data.length > 0) {
+          // processa os dados e plota o grafico
+          var labels = [];
+          var values = [];
+
+          for (var i = 0; i < data.length; i++) {
+            labels.push(data[i].Nome);
+            values.push(data[i].Albuns);
+          }
+
+          // cria o garfico com chartjs
+          const graficoAlbum = document.getElementById('myChart');
+          const myChart = new Chart(graficoAlbum, {
+            type: 'doughnut',
+            data: {
+              labels: labels,
+              datasets: [{
+                label: 'Albuns favoritos por usuários',
+                data: values,
+                backgroundColor: [
+                  "#ff809d",
+                  "#ff1616",
+                  "#696969",
+                  "#fff300",
+                  "#0083ff",
+                  "#80ff8a",
+                  "#80c3ff",
+                  "#9d80ff"
+                ],
+                borderColor: '#f5f5f5',
+                borderWidth: 1
+              }]
+            },
+            options: {
+              scales: {
+                y: {
+                  beginAtZero: true,
+                  ticks: {
+                    precision: 0,
+                    color: '#000000' // Cor dos textos do eixo Y
+                  }
+                },
+                x: {
+                  ticks: {
+                    color: '#000000' // Cor dos textos do eixo X
+                  }
+                }
+              },
+              plugins: {
+                legend: {
+                  labels: {
+                    color: '#000000' // Cor do texto da legenda
+                  }
+                }
+              }
+            }
+          });
+        }
+      })
+      .catch(error => {
+        console.error('Erro ao obter dados do gráfico:', error);
+      });
+  }
+
+  function buscarIdade() {
+    fetch("/dashboard/buscarIdade")
+      .then(response => {
+        if (response.ok) {
+          return response.json();
+        } else {
+          console.error('Erro ao obter dados do gráfico');
+        }
+      })
+      .then(data => {
+        if (data && data.length > 0) {
+          // processa os dados e plota o grafico
+          var labels = [];
+          var values = [];
+
+          for (var i = 0; i < data.length; i++) {
+            labels.push(data[i].Usuario);
+            values.push(data[i].idade);
+          }
+
+          // cria o garfico com chartjs
+          const graficoIdade = document.getElementById('myChart2');
+          const myChart = new Chart(graficoIdade, {
+            type: 'bar',
+            data: {
+      labels: values ,
+      datasets: [{
+        label: 'Idade dos usuários',
+        data: labels,
+        borderWidth: 1
+      }]
+    },
+    options: {
+      scales: {
+        y: {
+          beginAtZero: true
+        }
+      }
+    }
+  });
+        }
+      })
+      .catch(error => {
+        console.error('Erro ao obter dados do gráfico:', error);
+      });
+  }
 
 
 

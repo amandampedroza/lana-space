@@ -23,7 +23,31 @@ function albumFavorito(req, res) {
           res.status(500).json(error.sqlMessage)
       })
 }
+
+function buscarAlbum(req, res) {
+    dashboardModel.buscarAlbum().then((resultado) => {
+        res.status(200).json(resultado);
+      })
+      
+      .catch(function (error) {
+          console.log(error)
+          console.log('Erro ao atualizar lote', error.sqlMessage)
+          res.status(500).json(error.sqlMessage)
+      })
+}
+
+function buscarIdade(req, res) {
+    dashboardModel.buscarIdade().then((resultado) => {
+        res.status(200).json(resultado);
+      })
+      
+      .catch(function (error) {
+          console.log(error)
+          console.log('Erro ao atualizar lote', error.sqlMessage)
+          res.status(500).json(error.sqlMessage)
+      })
+}
   
   
   
-module.exports = {listar, albumFavorito}
+module.exports = {listar, albumFavorito, buscarAlbum, buscarIdade}

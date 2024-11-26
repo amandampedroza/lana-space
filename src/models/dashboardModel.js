@@ -10,4 +10,14 @@ function albumFavorito(){
     return database.executar(instrucaoSql);
 }
 
-module.exports = {listar, albumFavorito};
+function buscarAlbum(){
+    var instrucaoSql = `select albumFavorito as Nome, count(albumFavorito) as Albuns from respostas group by albumFavorito;`
+    return database.executar(instrucaoSql);
+}
+
+function buscarIdade(){
+    var instrucaoSql = `select idUsuario as Usuario, (timestampdiff(year,dataNascimento, now())) as idade from usuario;`
+    return database.executar(instrucaoSql);
+}
+
+module.exports = {listar, albumFavorito, buscarAlbum, buscarIdade};
