@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+  <link rel="website icon" type="png" href="./img/logols.png">
   <script src="https://kit.fontawesome.com/88fed8b646.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <script src="./js/sessao.js"></script>
@@ -16,7 +16,8 @@
 <body onload="listar(); validarSessao(); albumFavorito(); buscarAlbum(); buscarIdade(); albumNFavorito()">
   <div class="all">
     <div class="menu-lateral">
-      <span style="color: white;">Olá <span id="b_usuario"></span>!</span>
+      <img src="./img/logols.png">
+      <span style="color: rgb(141, 84, 84);">Olá <span id="b_usuario"></span>!</span>
 
       <a class="home" href="index2.html">Home</a>
       <a class="sair" href="login.html">Sair</a>
@@ -42,10 +43,16 @@
           <div style="font-size: 35px;" id="div_idade"></div>
         </div>
 
+        <div class="kpi">
+          <div class="texto-kpi">
+           Total de votos:
+          </div>
+          <div id="d"></div>
+        </div>
 
         <div class="kpi">
           <div class="texto-kpi">
-            Álbum + votado:
+            Álbum mais votado:
           </div>
           <div id="div_album"></div>
         </div>
@@ -53,18 +60,10 @@
 
         <div class="kpi">
           <div class="texto-kpi">
-            Álbum - votado:
+            Álbum menos votado:
           </div>
           <div id="div_albumN"></div>
         </div>
-
-        <div class="kpi">
-          <div class="texto-kpi">
-            Álbum - votado:
-          </div>
-          <div id="d"></div>
-        </div>
-
       </div>
 
       <div class="graficos">
@@ -147,6 +146,10 @@
 
 
 
+    }
+
+    .texto-kpi{
+      font-size: 22px;
     }
 
     .kpi {
