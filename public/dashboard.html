@@ -44,7 +44,7 @@
 
         <div class="kpi">
           <div class="texto-kpi">
-            Álbum mais votado:
+            Álbum + votado:
           </div>
           <div id="div_album"></div>
         </div>
@@ -52,9 +52,9 @@
 
         <div class="kpi">
           <div class="texto-kpi">
-            Idade média dos usuários:
+            Álbum - votado:
           </div>
-          <div id="informacaoKpi"></div>
+          <div id="div_albumN"></div>
         </div>
       </div>
     </div>
@@ -82,11 +82,12 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      background-color: darkblue;
+      background-color: rgb(234, 194, 194);
       width: 20vw;
       margin-right: 0;
       justify-content: space-evenly;
       font-size: 20px;
+      font-family: "Afacad Flux", sans-serif;
 
     }
 
@@ -96,7 +97,7 @@
     }
     
     .home:hover{
-      color: aqua;
+      color: rgb(213, 134, 134);
     }
 
      .sair:hover{
@@ -109,7 +110,7 @@
       align-items: center;
       justify-content: center;
       font-family: "Afacad Flux", sans-serif;
-      color: darksalmon;
+      color: rgb(234, 194, 194);
     
     }
 
@@ -131,7 +132,7 @@
       display: flex;
       flex-direction: column;
       justify-content: space-around;
-      background-color: darksalmon;
+      background-color: rgb(234, 194, 194);
       width: 14vw;
       height: 11vw;
       border-radius: 1vw;
@@ -182,6 +183,8 @@ function albumFavorito(){
       var album = json[0].AlbumFav;
       console.log(album);
 
+      var albumN = json[0].AlbumNFav;
+
       if(album == 'ultraviolence'){
       div_album.innerHTML = `<img src="../img/ultravio.jpg" width="100px">` 
       } else if (album == 'borntodie') {
@@ -200,6 +203,26 @@ function albumFavorito(){
         div_album.innerHTML = `<img src="../img/bluebanisters.jpg" width="100px">` 
       } else if (album == 'dykttatuob'){
         div_album.innerHTML = `<img src="../img/dyk.jpg" width="100px">` 
+      }
+
+      if(albumN == 'ultraviolence'){
+      div_albumN.innerHTML = `<img src="../img/ultravio.jpg" width="100px">` 
+      } else if (albumN == 'borntodie') {
+        div_albumN.innerHTML = `<img src="../img/borntodie.jpg" width="100px">` 
+      } else if (albumN == 'paradise'){
+        div_albumN.innerHTML = `<img src="../img/paradise.jpg" width="100px">` 
+      } else if (albumN == 'honeymoon'){
+        div_albumN.innerHTML = `<img src="../img/honeymoon.jpg" width="100px">` 
+      } else if (albumN == 'lustforlife'){
+        div_albumN.innerHTML = `<img src="../img/lustforlife.jpg" width="100px">` 
+      } else if (albumN == 'nfr'){
+        div_albumN.innerHTML = `<img src="../img/nfr.jpg" width="100px">` 
+      } else if (albumN == 'cotcc') {
+        div_albumN.innerHTML = `<img src="../img/cotcc.jpg" width="100px">` 
+      } else if (albumN == 'bluebanisters'){
+        div_albumN.innerHTML = `<img src="../img/bluebanisters.jpg" width="100px">` 
+      } else if (albumN == 'dykttatuob'){
+        div_albumN.innerHTML = `<img src="../img/dyk.jpg" width="100px">` 
       }
     })
     .catch((error) => {

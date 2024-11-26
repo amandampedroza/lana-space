@@ -6,7 +6,7 @@ function listar(){
 }
 
 function albumFavorito(){
-    var instrucaoSql = `select max(albumFavorito) as 'AlbumFav' from respostas;`
+    var instrucaoSql = `select max(albumFavorito) as 'AlbumFav', min(albumFavorito) as 'AlbumNFav' from respostas;`
     return database.executar(instrucaoSql);
 }
 
