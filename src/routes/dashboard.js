@@ -12,6 +12,11 @@ router.get("/listar", function (req, res) {
     dashboardController.albumFavorito(req, res);
    });
 
+   router.get("/albumNFavorito", function (req, res) {
+    dashboardController.albumNFavorito(req, res);
+   });
+
+
    router.get("/buscarAlbum", function (req, res) {
     dashboardController.buscarAlbum(req, res);
    });

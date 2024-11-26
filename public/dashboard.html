@@ -13,7 +13,7 @@
 
 <!-- <body onload="validarSessao()"> -->
 
-<body onload="listar(); validarSessao(); albumFavorito(); buscarAlbum(); buscarIdade()">
+<body onload="listar(); validarSessao(); albumFavorito(); buscarAlbum(); buscarIdade(); albumNFavorito()">
   <div class="all">
     <div class="menu-lateral">
       <span style="color: white;">Olá <span id="b_usuario"></span>!</span>
@@ -49,7 +49,7 @@
           </div>
           <div id="div_album"></div>
         </div>
-
+    
 
         <div class="kpi">
           <div class="texto-kpi">
@@ -73,7 +73,7 @@
         </div>
 
         <div>
-          <canvas id="myChart2" width="750px"></canvas>
+          <canvas id="myChart2" width="780px"></canvas>
         </div>
       </div>
     </div>
@@ -167,6 +167,7 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
+      
 
 
 
@@ -211,46 +212,63 @@
         var album = json[0].AlbumFav;
         console.log(album);
 
-        var albumN = json[0].AlbumNFav;
-
         if (album == 'ultraviolence') {
-          div_album.innerHTML = `<img src="../img/ultravio.jpg" width="100px">`
+          div_album.innerHTML = `<img src="../img/ultravio.jpg" width="80px"> <br> <b style= "font-size: 20px; color: gray">ULTRAVIOLENCE<br> `
         } else if (album == 'borntodie') {
-          div_album.innerHTML = `<img src="../img/borntodie.jpg" width="100px">`
+          div_album.innerHTML = `<img src="../img/borntodie.jpg"  width="80px"> <br> <b style= "font-size: 20px; color: rgb(57, 173, 211)">BORN TO DIE<br> `
         } else if (album == 'paradise') {
-          div_album.innerHTML = `<img src="../img/paradise.jpg" width="100px">`
+          div_album.innerHTML = `<img src="../img/paradise.jpg"  width="80px"> <br> <b style= "font-size: 20px; color: yellow">PARADISE<br> `
         } else if (album == 'honeymoon') {
-          div_album.innerHTML = `<img src="../img/honeymoon.jpg" width="100px">`
+          div_album.innerHTML = `<img src="../img/honeymoon.jpg"  width="80px"> <br> <b style= "font-size: 20px; color: red">HONEYMOON<br> `
         } else if (album == 'lustforlife') {
-          div_album.innerHTML = `<img src="../img/lustforlife.jpg" width="100px">`
+          div_album.innerHTML = `<img src="../img/lustforlife.jpg"  width="80px"> <br> <b style= "font-size: 20px; color: red">LUST FOR LIFE<br> `
         } else if (album == 'nfr') {
-          div_album.innerHTML = `<img src="../img/nfr.jpg" width="100px">`
+          div_album.innerHTML = `<img src="../img/nfr.jpg"  width="80px"> <br> <b style= "font-size: 20px; color: yellow">NFR!<br> `
         } else if (album == 'cotcc') {
-          div_album.innerHTML = `<img src="../img/cotcc.jpg" width="100px">`
+          div_album.innerHTML = `<img src="../img/cotcc.jpg"  width="80px"> <br> <b style= "font-size: 20px; color: black">COTCC<br> `
         } else if (album == 'bluebanisters') {
-          div_album.innerHTML = `<img src="../img/bluebanisters.jpg" width="100px">`
+          div_album.innerHTML = `<img src="../img/bluebanisters.jpg"  width="80px"> <br> <b style= "font-size: 20px; color: brown">BLUE BANISTERS<br> `
         } else if (album == 'dykttatuob') {
-          div_album.innerHTML = `<img src="../img/dyk.jpg" width="100px">`
+          div_album.innerHTML = `<img src="../img/dyk.jpg"  width="80px"> <br> <b style= "font-size: 20px; color: darkgray">DYKTTATUOB<br> `
         }
 
+      })
+      .catch((error) => {
+        console.error("Erro ao listar dados:", error);
+      });
+  }
+
+      
+        function albumNFavorito() {
+    fetch("/dashboard/albumNFavorito", {
+      method: "GET",
+    })
+      .then((res) => res.json())
+      .then((json) => {
+        console.log(json);
+        var albumnaofavorito = json[0].AlbumNFav;
+        console.log(albumnaofavorito);
+
+        var albumN = json[0].AlbumNFav;
+
         if (albumN == 'ultraviolence') {
-          div_albumN.innerHTML = `<img src="../img/ultravio.jpg" width="100px">`
+          div_albumN.innerHTML = `<img src="../img/ultravio.jpg"  width="80px"> <br> <b style= "font-size: 20px; color: gray">ULTRAVIOLENCE<br> `
         } else if (albumN == 'borntodie') {
-          div_albumN.innerHTML = `<img src="../img/borntodie.jpg" width="100px">`
+          div_albumN.innerHTML = `<img src="../img/borntodie.jpg"  width="80px"> <br> <b style= "font-size: 20px; color: rgb(57, 173, 211)">BORN TO DIE<br> `
         } else if (albumN == 'paradise') {
-          div_albumN.innerHTML = `<img src="../img/paradise.jpg" width="100px">`
+          div_albumN.innerHTML = `<img src="../img/paradise.jpg"  width="80px"> <br> <b style= "font-size: 20px; color: yellow">PARADISE<br> `
         } else if (albumN == 'honeymoon') {
-          div_albumN.innerHTML = `<img src="../img/honeymoon.jpg" width="100px">`
+          div_albumN.innerHTML = `<img src="../img/honeymoon.jpg"  width="80px"> <br> <b style= "font-size: 20px; color: red">HONEYMOON<br> `
         } else if (albumN == 'lustforlife') {
-          div_albumN.innerHTML = `<img src="../img/lustforlife.jpg" width="100px">`
+          div_albumN.innerHTML = `<img src="../img/lustforlife.jpg"  width="80px"> <br> <b style= "font-size: 20px; color: red">LUST FOR LIFE<br> `
         } else if (albumN == 'nfr') {
-          div_albumN.innerHTML = `<img src="../img/nfr.jpg" width="100px">`
+          div_albumN.innerHTML = `<img src="../img/nfr.jpg"  width="80px"> <br> <b style= "font-size: 20px; color: yellow">NFR!<br> `
         } else if (albumN == 'cotcc') {
-          div_albumN.innerHTML = `<img src="../img/cotcc.jpg" width="100px">`
+          div_albumN.innerHTML = `<img src="../img/cotcc.jpg"  width="80px"> <br> <b style= "font-size: 20px; color: black">COTCC<br> `
         } else if (albumN == 'bluebanisters') {
-          div_albumN.innerHTML = `<img src="../img/bluebanisters.jpg" width="100px">`
+          div_albumN.innerHTML = `<img src="../img/bluebanisters.jpg"  width="80px"> <br> <b style= "font-size: 20px; color: brown">BLUE BANISTERS<br> `
         } else if (albumN == 'dykttatuob') {
-          div_albumN.innerHTML = `<img src="../img/dyk.jpg" width="100px">`
+          div_albumN.innerHTML = `<img src="../img/dyk.jpg"  width="80px"> <br> <b style= "font-size: 20px; color: darkgray">DYKTTATUOB<br> `
         }
       })
       .catch((error) => {
@@ -348,7 +366,7 @@
           var values = [];
 
           for (var i = 0; i < data.length; i++) {
-            labels.push(data[i].Usuario);
+            labels.push(data[i].quantidade);
             values.push(data[i].idade);
           }
 
@@ -361,6 +379,7 @@
       datasets: [{
         label: 'Idade dos usuários',
         data: labels,
+        backgroundColor: '#80c3ff',
         borderWidth: 1
       }]
     },
