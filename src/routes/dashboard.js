@@ -16,7 +16,6 @@ router.get("/listar", function (req, res) {
     dashboardController.albumNFavorito(req, res);
    });
 
-
    router.get("/buscarAlbum", function (req, res) {
     dashboardController.buscarAlbum(req, res);
    });
@@ -24,5 +23,10 @@ router.get("/listar", function (req, res) {
    router.get("/buscarIdade", function (req, res) {
     dashboardController.buscarIdade(req, res);
    });
+
+   router.get("/buscarVotos", function (req, res) {
+    dashboardController.buscarVotos(req, res);
+   });
+
 
 module.exports = router;

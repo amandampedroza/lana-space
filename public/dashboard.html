@@ -13,7 +13,7 @@
 
 <!-- <body onload="validarSessao()"> -->
 
-<body onload="listar(); validarSessao(); albumFavorito(); buscarAlbum(); buscarIdade(); albumNFavorito()">
+<body onload="listar(); validarSessao(); albumFavorito(); buscarAlbum(); buscarIdade(); albumNFavorito(); buscarVotos()">
   <div class="all">
     <div class="menu-lateral">
       <img src="./img/logols.png">
@@ -44,10 +44,10 @@
         </div>
 
         <div class="kpi">
-          <div class="texto-kpi">
+          <div style="font-size: 25px;" class="texto-kpi">
            Total de votos:
           </div>
-          <div id="d"></div>
+          <div style="font-size: 40px;"  id="div_votos"></div>
         </div>
 
         <div class="kpi">
@@ -204,6 +204,28 @@
         console.error("Erro ao listar dados:", error);
       });
   }
+
+  function buscarVotos() {
+    fetch("/dashboard/buscarVotos", {
+      method: "GET",
+    })
+      .then((res) => res.json()) 
+      .then((json) => {
+        console.log(json);
+
+        
+        var votos = (json[0].quantidade); 
+        console.log(votos);
+
+        
+        div_votos.innerHTML = votos;
+      })
+      .catch((error) => {
+        console.error("Erro ao listar dados:", error);
+      });
+  }
+
+
 
   function albumFavorito() {
     fetch("/dashboard/albumFavorito", {

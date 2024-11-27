@@ -7,7 +7,7 @@ function listar(req, res) {
     
     .catch(function (error) {
         console.log(error)
-        console.log('Erro ao atualizar lote', error.sqlMessage)
+        console.log('Erro ao listar idade', error.sqlMessage)
         res.status(500).json(error.sqlMessage)
     })
 }
@@ -44,7 +44,7 @@ function buscarAlbum(req, res) {
       
       .catch(function (error) {
           console.log(error)
-          console.log('Erro ao atualizar lote', error.sqlMessage)
+          console.log('Erro ao buscar álbum', error.sqlMessage)
           res.status(500).json(error.sqlMessage)
       })
 }
@@ -56,11 +56,24 @@ function buscarIdade(req, res) {
       
       .catch(function (error) {
           console.log(error)
-          console.log('Erro ao atualizar lote', error.sqlMessage)
+          console.log('Erro ao buscar idade', error.sqlMessage)
+          res.status(500).json(error.sqlMessage)
+      })
+}
+
+function buscarVotos(req, res) {
+    dashboardModel.buscarVotos().then((resultado) => {
+        res.status(200).json(resultado);
+      })
+      
+      .catch(function (error) {
+          console.log(error)
+          console.log('Erro ao buscar votos', error.sqlMessage)
           res.status(500).json(error.sqlMessage)
       })
 }
   
   
   
-module.exports = {listar, albumFavorito, buscarAlbum, buscarIdade, albumNFavorito}
+  
+module.exports = {listar, albumFavorito, buscarAlbum, buscarIdade, albumNFavorito, buscarVotos}

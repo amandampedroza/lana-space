@@ -25,4 +25,11 @@ function buscarIdade(){
     return database.executar(instrucaoSql);
 }
 
-module.exports = {listar, albumFavorito, buscarAlbum, buscarIdade, albumNFavorito};
+
+function buscarVotos(){
+    var instrucaoSql = `select count(fkUsuario) as quantidade from respostas;`
+    return database.executar(instrucaoSql);
+}
+
+
+module.exports = {listar, albumFavorito, buscarAlbum, buscarIdade, albumNFavorito, buscarVotos};
