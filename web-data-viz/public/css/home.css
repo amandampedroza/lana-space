@@ -1,0 +1,258 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&display=swap');
+@import url('https://fonts.cdnfonts.com/css/kapakana');
+@import url('https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Afacad+Flux:wght@100..1000&display=swap');
+
+body{
+    margin: 0;
+    padding: 0;
+    background-color: rgb(234, 212, 194);
+    
+}
+
+/* COMEÇO DO BANNER */
+
+.background {
+    background-image: url(../img/lana411.jpg);
+    background-position: center; /* Centraliza a imagem */
+    background-repeat: no-repeat; /* Não repete a imagem */
+    background-size: cover; 
+    background-color: aliceblue;
+    width: 100%;
+    height: 600px;
+
+}
+
+.select {
+    color: white;
+    font-family: "Afacad Flux", sans-serif; 
+    font-size: 20px;
+    
+    
+}
+
+#slt_tema {
+    background-color: rgb(234, 212, 194);
+    border-radius: 10px;
+    font-size: 15px;
+    font-family: "Afacad Flux", sans-serif;  
+    
+}
+
+.navbar {
+    padding: 5vh;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.container{
+    display: flex;
+    justify-content: space-evenly;
+    font-size: 25px;
+    font-family: "Afacad Flux", sans-serif;
+    color: white;
+    width: 40%; 
+    
+}
+
+.container a {
+    text-decoration: none;
+    color: white;
+}
+
+.container a:hover{
+    color: rgb(204, 129, 129);
+}
+
+
+.titulo-frase {
+    display: flex;
+    flex-direction: column;
+    
+}
+
+.titulo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    justify-content: space-around;
+    font-family: "Great Vibes", cursive;
+    font-size: 100px;
+    color: rgb(234, 212, 194);
+    margin-top: 10vh;
+    
+}
+
+h1 {
+    margin: 0;
+    padding: 0;
+}
+
+.frase {
+    font-size: 50px;
+    font-family: "Kapakana", sans-serif; 
+    display: flex;
+    justify-content: center;
+    background-color: antiquewhite;
+    width: 40%;
+}
+
+/* FIM DO BANNER */
+
+/* COMEÇO DA HISTÓRIA (QUEM É)*/
+
+
+.historia-foto {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: rgb(255, 255, 255);
+    margin: 7vh;
+    border-radius: 25px;
+    padding: 2vh 7vh 7vh 7vh;
+    flex-direction: column;
+}
+
+.titulo-queme {
+    font-size: 45px;
+    padding-bottom: 2%;
+    font-family: "Afacad Flux", sans-serif;
+    font-weight: 500;
+    color:rgb(204, 129, 129)
+
+}
+
+.historiatexto-foto{
+    display: flex;
+    justify-content: space-between;
+
+}
+
+.historia {
+    font-size: 35px;
+    font-family: "Afacad Flux", sans-serif;
+    width: 50%;
+    color: rgb(0, 0, 0);
+}
+
+
+.foto-historia {
+    background-image: url(../img/lana3.png);
+    background-size: cover;
+    width: 600px;
+    height: 400px;
+    border-radius: 25px;
+}
+
+/* FIM DA HISTÓRIA */
+
+/*COMEÇO CARROSEL DE FOTOS*/
+
+.carousel-tudo {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+
+}
+
+
+.foto1 {
+    background-image: url(../img/lanahome2.jpg);
+    background-size: cover;
+    width: 400px;
+    height: 400px;
+    border-radius: 25px;
+}
+
+.foto2 {
+    background-image: url(../img/lanahome1.jpg);
+    background-size: cover;
+    width: 400px;
+    height: 400px;
+    border-radius: 25px;
+}
+
+.foto3 {
+    background-image: url(../img/lanahome2.jpg);
+    background-size: cover;
+    width: 400px;
+    height: 400px;
+    border-radius: 25px;
+}
+
+/* FIM CARROSEL DE FOTOS */
+
+/* COMEÇO ONU (IMPACTO)*/
+
+.onu {
+    background-color: rgb(255, 255, 255);
+    padding: 2vh 5vh 5vh 5vh;
+    margin: 7vh;
+    border-radius: 25px; font-size: 30px;
+    font-family: "Afacad Flux", sans-serif;
+    color: rgb(0, 0, 0);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+
+.titulo-impacto{
+    font-size: 45px;
+    font-family: "Afacad Flux", sans-serif;
+    font-weight: 500;
+    color:rgb(204, 129, 129)
+}
+
+.onu-texto-foto {
+    display: flex;
+    align-items: center;
+    padding: 5vh 5vh 0 5vh;
+    flex-direction: column;
+    
+}
+
+.onu-fotos {
+    display: flex;
+    font-size: 22px;
+    align-items: center;
+    margin-right: 2%;
+
+}
+
+.onu-fotos img{
+    width: 140px;
+    height: 140px;
+    margin: 2%;
+    
+}
+
+
+/* FIM ONU (IMPACTO)*/
+
+/* COMEÇO FOOTER */
+
+.footer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: rgb(204, 129, 129);
+    padding: 1%;
+    font-size: 25px;
+    font-family:  "Afacad Flux", sans-serif; 
+    color: #ffffff;
+}
+
+.footer a {
+    text-decoration: none;
+    margin-left: 5px;
+    color: #ffffff;
+}
+
+.footer a:hover{
+    color: black;
+}
+
+/*FIM DO FOOTER*/
