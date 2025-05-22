@@ -1,4 +1,4 @@
-# <img src="public\img\cadastro.gif" width="400"> <h1>  ♡ ⋆ LanaSpace ⋆ ♡ </h1>
+#  <h1>  ♡ ⋆ LanaSpace ⋆ ♡ </h1> <img src="public\img\cadastro.gif" width="400">
 
 ### Projeto individual - 1º Semestre SPTech School
 
